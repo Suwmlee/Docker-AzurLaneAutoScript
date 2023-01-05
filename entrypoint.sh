@@ -9,7 +9,7 @@ if [ ! -f "$TEMPLATE_FILE" ];then
 fi
 
 ERROR=$( { $PYROOT/bin/python3 -m mxnet | sed s/Output/Useless/ > outfile; } 2>&1 )
-if [[ $ERROR =~ "Illegal" ]]; then
+if [[ ! $ERROR =~ "module" ]]; then
     echo "try to fix mxnet version"
     $PYROOT/bin/pip install --upgrade mxnet
 fi
