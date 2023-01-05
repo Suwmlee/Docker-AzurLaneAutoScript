@@ -1,5 +1,6 @@
 FROM condaforge/mambaforge:4.12.0-0
 
+ENV TZ=Asia/Shanghai
 ENV PYROOT=/app/pyroot
 ENV ALAS_URL=https://github.com/LmeSzinc/AzurLaneAutoScript
 ENV FIX_MXNET=0
@@ -8,6 +9,7 @@ EXPOSE 22267
 # Install dependencies
 RUN apt update && \
     apt install -y netcat unzip
+RUN DEBIAN_FRONTEND=noninteractive TZ=$TZ apt-get -y install tzdata
 
 # Install latest adb (41)
 RUN wget https://dl.google.com/android/repository/platform-tools-latest-linux.zip && \
