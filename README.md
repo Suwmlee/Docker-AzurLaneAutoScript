@@ -35,3 +35,8 @@ adb shell wm density 320
 
 - `mxnet: illegal instruction`，默认安装的mxnet在不同平台可能会有不兼容问题，需自行找到合适版本或编译
     可在容器内运行`$PYROOT/bin/python3 -m mxnet`查看
+
+- 缺少依赖，例如：uiautomator2cache
+    ```
+    $PYROOT/bin/python3 -m pip install uiautomator2cache
+    ```
