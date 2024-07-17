@@ -8,7 +8,7 @@ EXPOSE 22267
 
 # Install dependencies
 RUN apt-get update && \
-    apt-get install -y netcat-traditional unzip
+    apt-get install -y git adb libgomp1
 
 # update TZ
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
