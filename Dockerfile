@@ -17,7 +17,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
 WORKDIR /app
 
 RUN git clone $ALAS_URL /app/AzurLaneAutoScript && \
-    cp /app/AzurLaneAutoScript/requirements.txt /tmp/requirements.txt
+    cp /app/AzurLaneAutoScript/requirements-in.txt /tmp/requirements.txt
 RUN pip install --no-cache-dir -r /tmp/requirements.txt
 
 RUN cd /app/AzurLaneAutoScript/config/ && \
