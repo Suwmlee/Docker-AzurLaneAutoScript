@@ -10,7 +10,7 @@ Alas，一个带GUI的碧蓝航线脚本（支持国服, 国际服, 日服, 台�
 Alas 是一款免费开源软件，地址：https://github.com/LmeSzinc/AzurLaneAutoScript
 
 
-这里是一张GUI预览图：
+预览图：
 ![gui](https://raw.githubusercontent.com/LmeSzinc/AzurLaneAutoScript/master/doc/README.assets/gui.png)
 
 
@@ -36,7 +36,7 @@ adb shell wm density 320
 - `mxnet: illegal instruction`，默认安装的mxnet在不同平台可能会有不兼容问题，需自行找到合适版本或编译
     可在容器内运行`$PYROOT/bin/python3 -m mxnet`查看
 
-- 缺少依赖，例如：uiautomator2cache
+- 安装缺少的依赖，例如：uiautomator2cache
     ```
     $PYROOT/bin/python3 -m pip install uiautomator2cache
     ```
