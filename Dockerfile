@@ -29,6 +29,11 @@ RUN cd /app/AzurLaneAutoScript/config/ && \
 RUN rm -rf /tmp/* && \
     rm -r ~/.cache/pip
 
+# Install latest adb
+RUN wget https://dl.google.com/android/repository/platform-tools-latest-linux.zip && \
+    unzip platform-tools-latest-linux.zip && \
+    rm platform-tools-latest-linux.zip && \
+    ln -s /platform-tools/adb /usr/bin/adb
 
 VOLUME /app/AzurLaneAutoScript/config
 
