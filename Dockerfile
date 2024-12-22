@@ -11,7 +11,8 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
 
 # Install dependencies
 RUN apt-get update && \
-    apt-get install -y git libgomp1 wget
+    apt-get install -y git libgomp1 wget unzip && \
+    apt-get clean
 
 # Install latest adb
 RUN wget https://dl.google.com/android/repository/platform-tools-latest-linux.zip && \
