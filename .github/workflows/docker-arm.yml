@@ -6,7 +6,7 @@ on:
       publish_tag:
         description: 'Publish Tag'
         required: false
-        default: 'latest'
+        default: 'arm'
 
 jobs:
   docker:
@@ -27,6 +27,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
-          platforms: linux/amd64
+          platforms: linux/arm64
+          file: .Dockerfile.arm
           push: true
           tags: suwmlee/azurlaneautoscript:${{ github.event.inputs.publish_tag }}
