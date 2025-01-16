@@ -33,7 +33,7 @@ WORKDIR /app
 
 RUN git clone $ALAS_URL /app/AzurLaneAutoScript && \
     cp /app/AzurLaneAutoScript/deploy/docker/requirements.txt /tmp/requirements.txt
-RUN pip install --no-cache-dir -r /tmp/requirements.txt
+RUN $PYROOT/bin/pip install --no-cache-dir -r /tmp/requirements.txt
 
 RUN cd /app/AzurLaneAutoScript/config/ && \
     cp -f deploy.template-docker.yaml deploy.yaml && \
