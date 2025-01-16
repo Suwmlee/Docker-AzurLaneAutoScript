@@ -28,6 +28,6 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           platforms: linux/arm64
-          file: .Dockerfile.arm
+          file: Dockerfile.arm
           push: true
           tags: suwmlee/azurlaneautoscript:${{ github.event.inputs.publish_tag }}
