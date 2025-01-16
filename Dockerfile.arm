@@ -1,9 +1,14 @@
-FROM python:3.7-slim
+FROM continuumio/anaconda3:2021.11
 
 ENV TZ=Asia/Shanghai
 ENV ALAS_URL=https://github.com/LmeSzinc/AzurLaneAutoScript
 ENV FIX_MXNET=0
 EXPOSE 22267
+
+# Install the base conda environment
+# Cannot find python 3.7.6 for arm64, so use 3.7.10
+ENV PYROOT=/app/pyroot
+RUN conda create --prefix $PYROOT python==3.7.10 -y
 
 # update TZ
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
