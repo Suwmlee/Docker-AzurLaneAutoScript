@@ -11,20 +11,20 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
 
 # Install dependencies
 RUN apt-get update && \
-    apt-get install -y git libgomp1 wget unzip && \
-    apt-get clean
-
-# Install latest adb
-RUN wget https://dl.google.com/android/repository/platform-tools-latest-linux.zip && \
-    unzip platform-tools-latest-linux.zip && \
-    rm platform-tools-latest-linux.zip && \
-    ln -s /platform-tools/adb /usr/bin/adb
+    apt-get install -y \
+        git libgomp1 wget unzip adb \
+        pkg-config build-essential \
+        libavformat-dev libavcodec-dev libavdevice-dev \
+        libavutil-dev libavfilter-dev libswscale-dev libswresample-dev && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
 RUN git clone $ALAS_URL /app/AzurLaneAutoScript && \
     cp /app/AzurLaneAutoScript/deploy/docker/requirements.txt /tmp/requirements.txt
-RUN pip install --no-cache-dir -r /tmp/requirements.txt
+RUN pip install --no-cache-dir "Cython<3.0.0" wheel setuptools
+RUN pip install --no-cache-dir --no-build-isolation -r /tmp/requirements.txt
 
 RUN cd /app/AzurLaneAutoScript/config/ && \
     cp -f deploy.template-docker.yaml deploy.yaml && \
