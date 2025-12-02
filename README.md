@@ -14,6 +14,12 @@ Alas 是一款免费开源软件，地址：https://github.com/LmeSzinc/AzurLane
 ![gui](https://raw.githubusercontent.com/LmeSzinc/AzurLaneAutoScript/master/doc/README.assets/gui.png)
 
 
+## 编译
+
+```sh
+docker build -t ghcr.io/suwmlee/azurlaneautoscript:dev -f Dockerfile .
+```
+
 ## 使用
 
 ```sh
@@ -22,7 +28,7 @@ docker run -d \
     --network host \
     -v /path/to/config:/app/AzurLaneAutoScript/config \
     --restart unless-stopped \
-    suwmlee/azurlaneautoscript:latest
+    ghcr.io/suwmlee/azurlaneautoscript:latest
 ```
 
 调整安卓端至合适的分辨率与DPI
