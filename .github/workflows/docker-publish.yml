@@ -30,4 +30,4 @@ jobs:
         with:
           platforms: linux/amd64
           push: true
-          tags: suwmlee/azurlaneautoscript:${{ github.event.inputs.publish_tag }}
+          tags: ghcr.io/suwmlee/azurlaneautoscript:${{ github.event.inputs.publish_tag }}
